@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+.todoItem{
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 10px 8px;
+    border: 2px solid #ccc;
+    margin-bottom: .5rem;
+    border-radius: 2%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+.button-span{
+    padding: 0 5px;
+    float: right;
+}
+.done{
+    text-decoration: line-through;
+}
