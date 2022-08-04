@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "../node_modules/axios/index";
 import Context from "./context";
 import "./styles/main.css"
+import AddTodo from "./todo/AddTodo";
 import List from "./todo/List";
 
 
@@ -37,6 +38,7 @@ function App() {
           <p>
             Решил особо с идеей не заморачиваться, поэтому сделал обычный Todo
           </p>
+          <AddTodo/>
           <List posts={posts} />
         </div>
       </div>

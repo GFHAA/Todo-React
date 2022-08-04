@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const addTodo = () => {
+const AddTodo = () => {
+    const [value, setValue] = useState("")
     return (
         <div className='input-holder'>
-            
+            <form>
+                <input type="text" onChange={el => setValue(el.target.value)}/>
+                <button type="submit">Добавить задание</button>
+            </form>
         </div>
     );
 };
 
-export default addTodo;
+export default AddTodo;
