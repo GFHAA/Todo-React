@@ -30,16 +30,29 @@ function App() {
       posts.filter(el => { return el.id !== id })
     )
   }
+  function addTodo(text) {
+    if (text.trim() != "") {
+      setPosts(
+        posts.concat([
+          {
+            title: text,
+            id: Date.now(),
+            completed: false
+          }
+        ])
+      )
+    }
+  }
   return (
-    <Context.Provider value={{ onChange, deleteTodo }}>
+    <Context.Provider value={{ onChange, deleteTodo, addTodo }}>
       <div className="wrapper">
         <div className="main">
           <h1>First react App</h1>
           <p>
             Решил особо с идеей не заморачиваться, поэтому сделал обычный Todo
           </p>
-          <AddTodo/>
-          <List posts={posts} />
+          <AddTodo />
+          {posts.length ? <List posts={posts} /> : <p>Тут пусто</p>}
         </div>
       </div>
     </Context.Provider>
