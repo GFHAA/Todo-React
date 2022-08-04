@@ -8,9 +8,11 @@ import List from "./todo/List";
 
 function App() {
   const [posts, setPosts] = React.useState([])
+  const [loading, setLoading] = React.useState(true)
   async function fetchPosts() {
     const responce = await axios.get("https://jsonplaceholder.typicode.com/todos?_limit=5")
     setPosts(responce.data)
+    setLoading(false)
   }
   useEffect(() => {
     fetchPosts()
@@ -31,7 +33,7 @@ function App() {
     )
   }
   function addTodo(text) {
-    if (text.trim() != "") {
+    if (text.trim() !== "") {
       setPosts(
         posts.concat([
           {
@@ -52,7 +54,8 @@ function App() {
             Решил особо с идеей не заморачиваться, поэтому сделал обычный Todo
           </p>
           <AddTodo />
-          {posts.length ? <List posts={posts} /> : <p>Тут пусто</p>}
+          {posts.length ? (<List posts={posts} />) : (loading ? null : <p>Тут пусто</p>)}
+          {loading && <p>Идет загрузка...</p>}
         </div>
       </div>
     </Context.Provider>
