@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "../node_modules/axios/index";
 import Context from "./context";
 import "./styles/main.css"
-import AddTodo from "./todo/AddTodo";
+import AddTodo from "./todo/addTodo";
 import List from "./todo/List";
 
 
